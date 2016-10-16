@@ -23,7 +23,7 @@ export default Component.extend(BusPublisherMixin, ModalMixin, {
   layout,
   hook: 'affinity_engine_menu_bar_rewind_menu',
 
-  saveStateManager: registrant('affinity-engine/save-state-manager'),
+  dataManager: registrant('affinity-engine/data-manager'),
   config: multiton('affinity-engine/config', 'engineId'),
 
   acceptKeys: configurable(configurationTiers, 'keys.accept'),
@@ -43,7 +43,7 @@ export default Component.extend(BusPublisherMixin, ModalMixin, {
   init(...args) {
     this._super(...args);
 
-    const points = get(this, 'saveStateManager.statePoints');
+    const points = get(this, 'dataManager.statePoints');
     const choices = Ember.A();
 
     points.reverse().forEach((point, index) => {
