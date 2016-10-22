@@ -2,7 +2,6 @@ import Ember from 'ember';
 import layout from '../templates/components/affinity-engine-menu-bar-button-rewind-menu';
 import { classNamesConfigurable, configurable, registrant } from 'affinity-engine';
 import { ModalMixin } from 'affinity-engine-menu-bar';
-import { BusPublisherMixin } from 'ember-message-bus';
 import multiton from 'ember-multiton-service';
 
 const {
@@ -19,12 +18,13 @@ const configurationTiers = [
   'config.attrs'
 ];
 
-export default Component.extend(BusPublisherMixin, ModalMixin, {
+export default Component.extend(ModalMixin, {
   layout,
   hook: 'affinity_engine_menu_bar_rewind_menu',
 
   dataManager: registrant('affinity-engine/data-manager'),
   config: multiton('affinity-engine/config', 'engineId'),
+  eBus: multiton('message-bus', 'engineId'),
 
   acceptKeys: configurable(configurationTiers, 'keys.accept'),
   animationLibrary: configurable(configurationTiers, 'animationLibrary'),
@@ -66,10 +66,10 @@ export default Component.extend(BusPublisherMixin, ModalMixin, {
 
       if (isPresent(points)) {
         const reversedPoints = points.reverse();
-        const engineId = get(this, 'engineId');
+        const eBus = get(this, 'eBus');
 
-        this.publish(`ae:${engineId}:main:shouldLoadLatestStatePoint`, reversedPoints);
-        this.publish(`ae:${engineId}:main:shouldLoadSceneFromPoint`, reversedPoints);
+        eBus.publish('shouldLoadLatestStatePoint', reversedPoints);
+        eBus.publish('shouldLoadSceneFromPoint', reversedPoints);
       }
 
       set(this, 'willTransitionOut', true);
