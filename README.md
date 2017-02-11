@@ -3,4 +3,4 @@
 
 # affinity-engine-menu-bar-button-rewind
 
-You'll find the interactive guides [here](http://www.affinityengine.org/components/menu-bar/buttons/rewind).
+You'll find the interactive guides [here](http://www.affinityengine.org/#/components/menu-bar/buttons/rewind).
