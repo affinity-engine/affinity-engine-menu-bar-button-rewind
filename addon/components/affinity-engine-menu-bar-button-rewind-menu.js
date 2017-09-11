@@ -12,10 +12,10 @@ const {
 } = Ember;
 
 const configurationTiers = [
-  'config.attrs.component.menuBar.button.rewind',
-  'config.attrs.component.menuBar.menu',
-  'config.attrs.component.menuBar',
-  'config.attrs.global'
+  'component.menuBar.button.rewind',
+  'component.menuBar.menu',
+  'component.menuBar',
+  'children'
 ];
 
 export default Component.extend(ModalMixin, {
@@ -27,12 +27,12 @@ export default Component.extend(ModalMixin, {
   eBus: multiton('message-bus', 'engineId'),
 
   acceptKeys: configurable(configurationTiers, 'keys.accept'),
-  animationLibrary: configurable(configurationTiers, 'animationLibrary'),
+  animator: configurable(configurationTiers, 'animator'),
   cancelKeys: configurable(configurationTiers, 'keys.cancel'),
   customClassNames: classNamesConfigurable(configurationTiers, 'classNames'),
   header: configurable(configurationTiers, 'header'),
   iconFamily: configurable(configurationTiers, 'iconFamily'),
-  menuColumns: configurable(configurationTiers, 'menuColumns'),
+  menuColumns: configurable(configurationTiers, 'menu.columns'),
   moveDownKeys: configurable(configurationTiers, 'keys.moveDown'),
   moveLeftKeys: configurable(configurationTiers, 'keys.moveLeft'),
   moveRightKeys: configurable(configurationTiers, 'keys.moveRight'),

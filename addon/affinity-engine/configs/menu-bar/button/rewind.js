@@ -1,10 +1,15 @@
 export default {
+  priority: 2,
   component: {
     menuBar: {
       button: {
         rewind: {
-          header: 'affinity-engine.menu-bar.buttons.rewind.header',
-          icon: 'backward'
+          attrs: {
+            header: 'affinity-engine.menu-bar.buttons.rewind.header',
+            icon: {
+              type: 'backward'
+            }
+          }
         }
       }
     }

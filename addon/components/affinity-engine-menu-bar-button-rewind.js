@@ -9,9 +9,9 @@ const {
 } = Ember;
 
 const configurationTiers = [
-  'config.attrs.component.menuBar.button.rewind',
-  'config.attrs.component.menuBar',
-  'config.attrs.global'
+  'component.menuBar.button.rewind',
+  'component.menuBar',
+  'children'
 ];
 
 export default Component.extend(ModalToggleMixin, {
