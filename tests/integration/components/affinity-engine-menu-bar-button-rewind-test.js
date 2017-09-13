@@ -15,7 +15,7 @@ moduleForComponent('affinity-engine-menu-bar-button-rewind', 'Integration | Comp
 const configurationTiers = [
   'config.attrs.component.menuBar.button.rewind.attrs',
   'config.attrs.component.menuBar.attrs',
-  'config.attrs.every.attrs'
+  'config.attrs.all.attrs'
 ];
 
 configurationTiers.forEach((priority) => {

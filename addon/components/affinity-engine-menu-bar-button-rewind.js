@@ -11,7 +11,7 @@ const {
 const configurationTiers = [
   'component.menuBar.button.rewind',
   'component.menuBar',
-  'children'
+  'all'
 ];
 
 export default Component.extend(ModalToggleMixin, {
